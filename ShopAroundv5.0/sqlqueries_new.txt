@@ -1,0 +1,198 @@
+CREATE TABLE Login(
+Uemailid VARCHAR2(25) PRIMARY KEY,
+Urole VARCHAR2(25),
+Password VARCHAR2(40)
+)
+
+CREATE SEQUENCE Cid 
+START WITH 001
+INCREMENT BY 1
+
+CREATE TABLE Customer(
+Cid NUMBER(10) PRIMARY KEY,
+Cname VARCHAR2(25) NOT NULL,
+Uemailid VARCHAR2(25) NOT NULL REFERENCES Login(Uemailid),
+Ccontact_Number NUMBER(12) NOT NULL,
+Cgender VARCHAR2(8),
+Caddress VARCHAR2(40),
+Cstreet VARCHAR2(40),
+City VARCHAR2(40),
+State Varchar2(40),
+Country VARCHAR2(40),
+Zip NUMBER(10),
+Security_quest VARCHAR2(200),
+answer VARCHAR2(20))
+
+
+CREATE TABLE Admin
+(Uemailid VARCHAR2(25) NOT NULL REFERENCES Login(Uemailid),
+Aid NUMBER(10) PRIMARY KEY,
+ Aname VARCHAR2(25) NOT NULL)
+
+DESC Admin
+
+CREATE TABLE Item(
+Itemid NUMBER(10) PRIMARY KEY,
+Itemname VARCHAR2(40))
+
+INSERT INTO Item VALUES(1001,'BOOK')
+INSERT INTO Item VALUES(1001,'ELECTRONIC')
+INSERT INTO Item VALUES(1001,'CLOTH')
+INSERT INTO Item VALUES(1001,'FOOTWEAR')
+
+DESC Item
+
+
+CREATE SEQUENCE Catid 
+START WITH 001
+INCREMENT BY 1
+
+CREATE TABLE Category(
+Itemid NUMBER(10) REFERENCES Item(Itemid),
+Catid NUMBER(10) PRIMARY KEY,
+Catname VARCHAR2(25))
+
+DESC Category
+
+CREATE SEQUENCE Pid 
+START WITH 001
+INCREMENT BY 1
+
+CREATE TABLE Product(
+Catid NUMBER(10) REFERENCES Category(Catid),
+Pid NUMBER(10)PRIMARY KEY,
+Pname VARCHAR2(40) NOT NULL,
+Pprice NUMBER(10,2) NOT NULL check (pprice>=0),
+Pweight NUMBER(10,2) NOT NULL check (pweight>=0),
+Pqty NUMBER(20) NOT NULL check (pqty>=0),
+Pdes VARCHAR2(400) )
+
+CREATE TABLE Productimg(
+Pid NUMBER(10)REFERENCES Product(Pid),
+Catid NUMBER(10)REFERENCES Category(Catid),
+Pname VARCHAR2(25) NOT NULL,
+Photo BLOB
+)
+
+
+DESC Product
+
+CREATE SEQUENCE Oid 
+START WITH 001
+INCREMENT BY 1
+
+
+CREATE TABLE Ordr(
+Oid NUMBER(10)PRIMARY KEY,
+Odate date,
+Cid NUMBER(10)REFERENCES Customer(Cid), 
+Ototal NUMBER(10,2),
+Oqty NUMBER(20)
+Orderstatus VARCHAR2(20))
+
+DESC Ordr
+
+CREATE TABLE OrderDetails(
+Oid NUMBER(10)REFERENCES Ordr(Oid), 
+Pid NUMBER(10)REFERENCES Product(Pid),
+Pname VARCHAR2(40),
+Pprice NUMBER(10,2),
+Pqty NUMBER(20)
+)
+
+CREATE SEQUENCE shipid 
+START WITH 001
+INCREMENT BY 1
+
+
+CREATE TABLE Shipment(
+Shipid NUMBER(10) PRIMARY KEY,
+Oid NUMBER(10) REFERENCES Ordr(Oid), 
+Cid NUMBER(10) REFERENCES Customer(Cid), 
+Shipaddress VARCHAR2(40),
+Shipstreet VARCHAR2(40),
+Shipcity VARCHAR2(40),
+Shipstate VARCHAR2(40),
+Shipcountry VARCHAR2(40),
+Shipzip NUMBER(10),
+Shipstatus VARCHAR2(20),
+SHIPCOST number(10,2)
+)
+
+
+DESC Shipment
+
+
+CREATE TABLE Review(
+Cid NUMBER(10) REFERENCES Customer(Cid),
+Pid NUMBER(10)REFERENCES Product(Pid),
+Review VARCHAR2(200),
+Rdate DATE)
+
+DESC Review
+
+
+
+
+CREATE TABLE Cart(
+Cid NUMBER(10) REFERENCES Customer(Cid),
+Pid NUMBER(10)REFERENCES Product(Pid),
+Cqty NUMBER(10),
+Cprize NUMBER(10,2),
+Ctotal NUMBER(10,2))
+
+DESC Cart
+
+
+CREATE TABLE Invoice(
+Invoiceid NUMBER(10)PRIMARY KEY,
+Transactionid VARCHAR2(20), 
+Cid NUMBER(10)REFERENCES Customer(Cid),
+Oid NUMBER(10)REFERENCES Ordr(Oid))
+
+DESC Invoice
+
+
+
+CREATE TABLE Transaction(
+transshop varchar2(20),
+cid number(10) REFERENCES Customer(Cid),
+oid number(10) REFERENCES ordr(oid),
+Transbank VARCHAR2(20),
+Transamt NUMBER(10,2),
+status VARCHAR2(20)
+)
+
+DESC Transaction
+  
+
+CREATE TABLE Discount(
+Promocode VARCHAR2(25) UNIQUE,
+Promoprice NUMBER(8,1))
+
+DESC Discount
+
+
+
+CREATE SEQUENCE Qid 
+START WITH 001
+INCREMENT BY 1
+
+
+CREATE TABLE Support(
+Qid Number(5),
+Cid Number(10) REFERENCES Customer(Cid),
+Question Varchar2(500),
+Answer varchar2(500))
+
+
+
+
+
+
+
+
+
+
+
+

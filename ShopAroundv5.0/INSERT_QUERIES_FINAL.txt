@@ -1,0 +1,82 @@
+
+INSERTING ITEMID AND ITEMNAME IN ITEM TABLE
+insert into item values(1001,'BOOK')
+insert into item values(1002,'ELECTRONIC')
+insert into item values(1003,'CLOTH')
+insert into item values(1004,'FOOTWEAR')
+
+
+INSERTING BOOKS CATEGORY ID IN CATEGORY TABLE
+insert into category values(1001,104,'FICTION')
+insert into category values(1001,105,'NONFICTION')
+
+INSERTING ELECTRONIC CATEGORY ID IN CATEGORY TABLE
+insert into category values(1002,101,'TV')
+insert into category values(1002,102,'FREEZE')
+insert into category values(1002,103,'MOBILES')
+
+INSERTING CLOTH CATEGORY ID IN CATEGORY TABLE
+insert into category values(1003,106,'Men')
+insert into category values(1003,107,'Women')
+
+
+INSERTING CLOTH FOOTWEAR ID IN CATEGORY TABLE
+insert into category values(1004,108,'MEN')
+insert into category values(1004,109,'WOMEN')
+
+
+
+FREEZE
+insert into product values(102,21,'Godrej Freeze',15000,7,10,'Godrej Freeze')
+insert into product values(102,22,'LG Freeze',12000,8,11,'LG Freeze')
+
+MOBILE
+insert into product values(103,31,'Nokia',5000,1,10,'NOKIA 7556')
+insert into product values(103,32,'HTC',7500,1,10,'HTC 7552')
+
+FICTION BOOKS
+insert into product values(104,41,'Catching Fire',500,0.3,17,'Catching Fire BY Suzanne Collins')
+insert into product values(104,42,'The Calcutta Chromosome',450,0.2,22,'The Calcutta Chromosome By Amitav Ghosh')
+
+NONFICTION BOOKS
+insert into product values(105,51,'Lucknow Boy A Memoir',600,0.2,25,'Lucknow Boy A Memoir By Vinod Mehta')
+insert into product values(105,52,'The Sea Inside',800,0.4,15,'The Sea Inside By Philip Hoare')
+
+MEN CLOTHING
+insert into product values(106,61,'Rogue Pant',2200,0.8,18,'Rogue Pant By Killer')
+insert into product values(106,62,'Chino Pant',1800,0.8,12,'Chino Pant By Color Plus')
+insert into product values(106,63,'Formal Pant',2100,0.7,14,'Formal Pant By Peter England')
+
+WOMEN CLOTHING
+insert into product values(107,71,'Cotton Saree',2100,0.5,14,'Cotton Saree')
+insert into product values(107,72,'Salwar Suit',2000,0.5,10,'Salwar Suit')
+insert into product values(107,73,'Women Jeans',2500,0.6,19,'Women Jeans')
+
+MEN FOOTWEAR
+insert into product values(108,81,'Formal Shoes',2500,1.2,13,'Formal Shoes')
+insert into product values(108,82,'Sports Shoes',1500,0.9,17,'Sports Shoes')
+insert into product values(108,83,'Sandals',900,1.1,17,'Sandals')
+
+WOMEN FOOTWEAR
+insert into product values(109,91,'Women Sandals',1700,0.9,17,'Women Sandals')
+insert into product values(109,92,'Women High Heels',3200,0.9,13,'Women High Heels')
+insert into product values(109,93,'Women Spool',4200,0.9,17,'Women Spool')
+
+
+TV
+insert into product values(101,11,'Samsung TV',15000,7,50,'Samsung TV')
+insert into product values(101,12,'Sony TV',20000,8,70,'Sony TV')
+insert into product values(101,13,'Panasonic TV',18000,7.5,60,'Panasonic TV')
+
+
+insert into admin values('alisha123@gmail.com',1001,'ALISHA')
+insert into customer values(cid.nextval,'ASHMITA','ashmit123@gmail.com',980234516,'female','LNT INFOTECH','MAHAPE','MUMBAI','MAHARASHTRA','INDIA',421002,'Who was your best childhood friend','ALISHA')
+insert into customer values(cid.nextval,'KALAIARASHI','kalaiarashij@gmail.com',8220448818,'female','LNT INFOTECH','MAHAPE','MUMBAI','MAHARASHTRA','INDIA',421002,'Where did You met Your spouse?','ALISHA')
+insert into customer values(cid.nextval,'Sudhandaraa','sudhandaraa@gmail.com',8220448819,'female','LNT INFOTECH','MAHAPE','MUMBAI','MAHARASHTRA','INDIA',421002,'Which is your favourite city?','ALISHA')
+
+
+
+
+
+
+
